@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
 {
+    //Assigning variables
     Tilemap tilemap;
     [SerializeField]
     Tile grass;

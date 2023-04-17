@@ -409,6 +409,7 @@ GameObject:
   - component: {fileID: 1689435147}
   - component: {fileID: 1689435146}
   - component: {fileID: 1689435148}
+  - component: {fileID: 1689435149}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -562,6 +563,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grass: {fileID: 11400000, guid: 5a3ea4910a8f0e44ca28d1d10e8b5699, type: 2}
   water: {fileID: 11400000, guid: 9deac22ae66789e46a2f59ea44b81b10, type: 2}
-  seed: 92
+  seed: 19
   smoothnessFactor: 6
   waterLevel: 1.31
+--- !u!114 &1689435149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689435144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e88b98d352e0824bb27e5129f5b0787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resources:
+  - {fileID: 6636066658620336093, guid: 76250f94465bfec49b38b2b0f95f1973, type: 3}
+  - {fileID: 2010108583242852958, guid: 6a59db91a897851419e40e4e97c7fb67, type: 3}
+  - {fileID: 8444165716506907332, guid: 8d6a8b7be9e2b2d49b309cdac5af333b, type: 3}
+  chances1In: 010000000200000001000000
