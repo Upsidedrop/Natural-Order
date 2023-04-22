@@ -148,7 +148,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360877652}
   m_Enabled: 1
-  m_CellSize: {x: 0.16, y: 0.16, z: 0}
+  m_CellSize: {x: 1, y: 1, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 360877652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.09, y: 5.09, z: 5.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1689435145}
@@ -255,7 +255,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 158.5907
+  orthographic size: 200
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -281,7 +281,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000087316b12
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -409,7 +409,6 @@ GameObject:
   - component: {fileID: 1689435147}
   - component: {fileID: 1689435146}
   - component: {fileID: 1689435148}
-  - component: {fileID: 1689435149}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -563,23 +562,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grass: {fileID: 11400000, guid: 5a3ea4910a8f0e44ca28d1d10e8b5699, type: 2}
   water: {fileID: 11400000, guid: 9deac22ae66789e46a2f59ea44b81b10, type: 2}
-  seed: 19
+  seed: 164
   smoothnessFactor: 6
   waterLevel: 1.31
---- !u!114 &1689435149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689435144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e88b98d352e0824bb27e5129f5b0787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   resources:
-  - {fileID: 6636066658620336093, guid: 76250f94465bfec49b38b2b0f95f1973, type: 3}
   - {fileID: 2010108583242852958, guid: 6a59db91a897851419e40e4e97c7fb67, type: 3}
-  - {fileID: 8444165716506907332, guid: 8d6a8b7be9e2b2d49b309cdac5af333b, type: 3}
-  chances1In: 010000000200000001000000
+  chances1In: 01000000
+  quantity: 50000

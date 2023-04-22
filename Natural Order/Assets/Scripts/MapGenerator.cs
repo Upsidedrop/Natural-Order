@@ -23,6 +23,12 @@ public class MapGenerator : MonoBehaviour
     int smoothnessFactor;
     [SerializeField]
     float waterLevel;
+    [SerializeField]
+    GameObject[] resources;
+    [SerializeField]
+    int[] chances1In;
+    [SerializeField]
+    int quantity;
     private void Awake()
     {
         UnityEngine.Random.InitState(seed);
@@ -44,6 +50,10 @@ public class MapGenerator : MonoBehaviour
         GenerateSeed(new Vector3Int(globalOffset.x, -globalOffset.y, 0));
         SmoothenTerrain(new Vector3Int(globalOffset.x, -globalOffset.y, 0));
         PaintTiles();
+        for (int i = 0; i < quantity; i++)
+        {
+            PlaceResources();
+        }
     }
     void GenerateSeed(Vector3Int offset)
     {
@@ -52,7 +62,7 @@ public class MapGenerator : MonoBehaviour
             for (int i1 = 0; i1 < tilemapHeight * 2; i1++)
             {
 
-                switch (UnityEngine.Random.Range(1, waterLevel+2))
+                switch (UnityEngine.Random.Range(1, waterLevel + 2))
                 {
                     case < 2:
                         tiles[Vector3IntToInt(offset + new Vector3Int(-tilemapWidth + i, -tilemapHeight + i1, 0))] = grass;
@@ -72,21 +82,21 @@ public class MapGenerator : MonoBehaviour
         {
             for (int i = 0; i < tilemapWidth * 2; i++)
             {
-                    for (int i1 = 0; i1 < tilemapHeight * 2; i1++)
+                for (int i1 = 0; i1 < tilemapHeight * 2; i1++)
+                {
+                    if (CountNeighbors(i, i1, offset) > 3)
                     {
-                        if (CountNeighbors(i, i1, offset) > 3)
-                        {
-                            buffer[Vector3IntToInt(offset + new Vector3Int(-tilemapWidth + i, -tilemapHeight + i1, 0))] = grass;
-                        }
-                        else
-                        {
-                            buffer[Vector3IntToInt(offset + new Vector3Int(-tilemapWidth + i, -tilemapHeight + i1, 0))] = water;
-                        }
+                        buffer[Vector3IntToInt(offset + new Vector3Int(-tilemapWidth + i, -tilemapHeight + i1, 0))] = grass;
                     }
+                    else
+                    {
+                        buffer[Vector3IntToInt(offset + new Vector3Int(-tilemapWidth + i, -tilemapHeight + i1, 0))] = water;
+                    }
+                }
             }
             Array.Copy(buffer, tiles, buffer.Length);
         }
-        
+
     }
     int CountNeighbors(int i, int i1, Vector3Int offset)
     {
@@ -152,4 +162,37 @@ public class MapGenerator : MonoBehaviour
             buffer[i] = water;
         }
     }
+    void PlaceResources()
+    {
+        int objectPos = UnityEngine.Random.Range(0, tiles.Length);
+        if (tiles[objectPos] == grass)
+        {
+            Instantiate(RandomGameobject(), (((Vector3)IntToVector3Int(objectPos)) + new Vector3(0.5f, 1f)), Quaternion.identity);
+        }
+
+    }
+    GameObject RandomGameobject()
+    {
+        int totalWeight = 0;
+        GameObject selectedResource = null;
+        int randomNumber;
+        int cumulativeWeight = 0;
+
+        foreach (int value in chances1In)
+        {
+            totalWeight += value;
+        }
+        randomNumber = UnityEngine.Random.Range(0, totalWeight);
+        for (int i = 0; i < chances1In.Length; i++)
+        {
+            cumulativeWeight += chances1In[i];
+            if (randomNumber < cumulativeWeight)
+            {
+                selectedResource = resources[i];
+                break;
+            }
+        }
+        return selectedResource;
+    }
+
 }
