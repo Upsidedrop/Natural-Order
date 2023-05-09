@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Trees
+  - name: Dynamic Layer
     uniqueID: 309014919
+    locked: 0
+  - name: Default 1
+    uniqueID: 1090797989
     locked: 0
